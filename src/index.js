@@ -64,7 +64,7 @@ const handlePoseToGameEvents = (pose) => {
     const rightElbowToSholder = getAngleBetween(rightShoulder, rightElbow)
 
     // arms and elbows
-    const angle = 40
+    const angle = 30
     const bothArmsUp = (leftElbowToSholder > angle)
         && (rightElbowToSholder > angle)
 

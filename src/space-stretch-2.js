@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import hotDogPath from './vendor/assets/images/hotdog.png'
-import shipPath from './vendor/assets/images/car90.png'
-import bgPath from './vendor/assets/images/concrete2.jpeg'
+import shipPath from './vendor/assets/images/duck90.png'
+import bgPath from './vendor/assets/images/38_PixelSky.png'
 
 
 const playerNgSpeed = 30
@@ -23,15 +23,15 @@ class SpaceStretch2Game extends Phaser.Scene {
         this.bg = this.add.image(config.width / 2, config.height / 2, 'bg');
         this.bg.setDisplaySize(config.width, config.height);
 
-        const playerScale = 1.4
-        const hotDogScale = 0.3
+        const playerScale = 3
+        const hotDogScale = 0.35
 
         this.score = 0
         this.cursors = this.input.keyboard.createCursorKeys();
         const textSytle = {
             fontFamily: 'Orbitron',
             fontSize: '25px',
-            fill: '#F2B307'
+            fill: '#132028'
         }
         // openingText
         this.add.text(
@@ -103,8 +103,6 @@ const config = {
     parent: 'main-canvas',
     width: scaleDownSketch ? window.innerWidth / 1.2 : window.innerWidth,
     height: scaleDownSketch ? window.innerHeight / 1.3 : window.innerHeight / 1.2,
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_VERTICALLY,
     scene: [SpaceStretch2Game],
     audio: {
         noAudio: true
