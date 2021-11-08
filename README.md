@@ -1,4 +1,4 @@
-# Space Strech Mini Game 
+# Strech Duck Mini Game 
 
 ![gif-xl](https://user-images.githubusercontent.com/86926500/140054207-06de8aec-df6f-485d-b23b-9e5bf2853554.gif)
 
