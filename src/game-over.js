@@ -41,7 +41,7 @@ export default class GameOver extends Phaser.Scene {
         infoText.setOrigin(0.5)
         infoText.setShadow(3, 3, 'rgba(0,0,0,0.2)', 2)
 
-        this.input.on("pointerdown", () => this.scene.start('space-stretch'))
+        this.input.on("pointerdown", () => this.scene.start('stretch-duck'))
 
         const restartTextStyle = {
             font: 'bold 32px Orbitron',

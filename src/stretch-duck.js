@@ -10,7 +10,7 @@ const playerSpeed = 80
 
 class SpaceStretch2Game extends Phaser.Scene {
     constructor() {
-        super({ key: 'space-stretch-2' });
+        super({ key: 'stretch-duck' });
     }
 
     preload() {
