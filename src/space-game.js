@@ -116,7 +116,7 @@ class SpaceStretchGame extends Phaser.Scene {
         const player = this.player
         if (this.score == this.placedAsteroidPlatforms) {
             this.scene.start('you-won', {
-                bgPath: "space",
+                bg: "space",
                 msg: "You Won! 🎉 \n" +
                 "All 🪨🪨🪨🪨 are crashed 💥"
             })
