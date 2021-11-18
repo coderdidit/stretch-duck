@@ -78,7 +78,7 @@ class SpaceStretch2Game extends Phaser.Scene {
 
     update(time, delta) {
         // check if won
-        if (this.score === 0) {
+        if (this.score === this.hotdogsCnt) {
             this.scene.start('you-won', {
                 bg: "pxl-sky",
                 msg: "You Won! 🎉 \n" +
@@ -86,7 +86,7 @@ class SpaceStretch2Game extends Phaser.Scene {
             })
             return
         }
-        // this.handlePlayerMoves()
+        this.handlePlayerMoves()
     }
 
     handlePlayerMoves() {
