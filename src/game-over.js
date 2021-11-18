@@ -12,9 +12,7 @@ const backgrounds = new Map([
 ])
 
 export default class GameOver extends Phaser.Scene {
-    constructor(bgPath, msg) {
-        this.bgPath = backgrounds.get(bgPath)
-        this.msg = msg
+    constructor() {
         super('you-won')
     }
 
@@ -22,7 +20,9 @@ export default class GameOver extends Phaser.Scene {
         this.load.image('bg', this.bgPath);
     }
 
-    create() {
+    create(data) {
+        this.bgPath = backgrounds.get(data.bgPath)
+        this.msg = data.msg
         this.confettiFiredCount = 0
         const { width, height } = this.physics.world.bounds
 
