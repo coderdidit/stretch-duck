@@ -28,7 +28,7 @@ class SpaceStretch2Game extends Phaser.Scene {
         const hotDogScale = 0.35
 
         this.score = 0
-        this.hotdogsCnt = 8
+        this.hotdogsCnt = 10
         this.cursors = this.input.keyboard.createCursorKeys();
         const textSytle = {
             fontFamily: 'Orbitron',
