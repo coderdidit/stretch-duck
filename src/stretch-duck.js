@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import hotDogPath from './vendor/assets/images/hotdog.png'
 import shipPath from './vendor/assets/images/duck90.png'
 import bgPath from './vendor/assets/images/38_PixelSky.png'
+import GameOver from "./game-over";
 
 
 const playerNgSpeed = 30
@@ -9,7 +10,7 @@ const playerSpeed = 80
 
 class SpaceStretch2Game extends Phaser.Scene {
     constructor() {
-        super({ key: 'space-stretch-2' });
+        super({ key: 'stretch-duck' });
     }
 
     preload() {
@@ -27,6 +28,7 @@ class SpaceStretch2Game extends Phaser.Scene {
         const hotDogScale = 0.35
 
         this.score = 0
+        this.hotdogsCnt = 10
         this.cursors = this.input.keyboard.createCursorKeys();
         const textSytle = {
             fontFamily: 'Orbitron',
@@ -60,7 +62,7 @@ class SpaceStretch2Game extends Phaser.Scene {
 
         const hotdogsGroup = this.physics.add.group({
             key: 'hotdog',
-            quantity: 15,
+            quantity: this.hotdogsCnt,
             collideWorldBounds: true,
         })
         hotdogsGroup.getChildren().forEach(dog => dog.setScale(hotDogScale))
@@ -75,6 +77,15 @@ class SpaceStretch2Game extends Phaser.Scene {
     }
 
     update(time, delta) {
+        // check if won
+        if (this.score === this.hotdogsCnt) {
+            this.scene.start('you-won', {
+                bg: "pxl-sky",
+                msg: "You Won! 🎉 \n" +
+                "All 🌭🌭🌭🌭 are eaten 😋"
+            })
+            return
+        }
         this.handlePlayerMoves()
     }
 
@@ -103,7 +114,7 @@ const config = {
     parent: 'main-canvas',
     width: scaleDownSketch ? window.innerWidth / 1.2 : window.innerWidth,
     height: scaleDownSketch ? window.innerHeight / 1.3 : window.innerHeight / 1.2,
-    scene: [SpaceStretch2Game],
+    scene: [SpaceStretch2Game, GameOver],
     audio: {
         noAudio: true
     },
