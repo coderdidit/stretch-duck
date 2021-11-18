@@ -27,6 +27,7 @@ class SpaceStretch2Game extends Phaser.Scene {
         const hotDogScale = 0.35
 
         this.score = 0
+        this.hotdogsCnt = 8
         this.cursors = this.input.keyboard.createCursorKeys();
         const textSytle = {
             fontFamily: 'Orbitron',
@@ -60,7 +61,7 @@ class SpaceStretch2Game extends Phaser.Scene {
 
         const hotdogsGroup = this.physics.add.group({
             key: 'hotdog',
-            quantity: 15,
+            quantity: this.hotdogsCnt,
             collideWorldBounds: true,
         })
         hotdogsGroup.getChildren().forEach(dog => dog.setScale(hotDogScale))
@@ -75,6 +76,11 @@ class SpaceStretch2Game extends Phaser.Scene {
     }
 
     update(time, delta) {
+        // check if won
+        if (this.score === this.hotdogsCnt) {
+            this.scene.start('you-won')
+            return
+        }
         this.handlePlayerMoves()
     }
 
