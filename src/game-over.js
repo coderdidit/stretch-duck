@@ -1,17 +1,25 @@
 import Phaser from "phaser";
-import bgPath from './vendor/assets/images/space.jpeg'
+import spaceBgPath from './vendor/assets/images/space.jpeg'
+import pxlSkyBgPath from './vendor/assets/images/38_PixelSky.png'
 import party from "party-js"
 
 
 const canvasParent = document.getElementById('main-canvas')
 
+const backgrounds = new Map([
+    ["space", spaceBgPath],
+    ["pxlSky", pxlSkyBgPath]
+])
+
 export default class GameOver extends Phaser.Scene {
-    constructor() {
+    constructor(bgPath, msg) {
+        this.bgPath = backgrounds.get(bgPath)
+        this.msg = msg
         super('you-won')
     }
 
     preload() {
-        this.load.image('bg', bgPath);
+        this.load.image('bg', this.bgPath);
     }
 
     create() {
@@ -31,9 +39,7 @@ export default class GameOver extends Phaser.Scene {
         const infoText = this.add.text(
             width / 2,
             (height / 2) - height * .2,
-            "🚀🚀🚀\n" +
-            "You Won! 🎉 \n" +
-            "All 🪨🪨🪨🪨 are crashed 💥",
+            thi.msg,
             textStyle
         )
         infoText.setOrigin(0.5)
