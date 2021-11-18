@@ -81,7 +81,7 @@ class SpaceStretch2Game extends Phaser.Scene {
             this.scene.start('you-won', {
                 bgPath: "pxlSky",
                 msg: "You Won! 🎉 \n" +
-                "All 🌭🌭🌭🌭 eaten 😋"
+                "All 🌭🌭🌭🌭 are eaten 😋"
             })
             return
         }
