@@ -6,28 +6,24 @@ import party from "party-js"
 
 const canvasParent = document.getElementById('main-canvas')
 
-const backgrounds = new Map([
-    ["space", spaceBgPath],
-    ["pxlSky", pxlSkyBgPath]
-])
-
 export default class GameOver extends Phaser.Scene {
     constructor() {
         super('you-won')
     }
 
     preload() {
-        this.load.image('bg', this.bgPath);
+        this.load.image('space', spaceBgPath);
+        this.load.image('pxl-sky', pxlSkyBgPath);
     }
 
     create(data) {
-        this.bgPath = backgrounds.get(data.bgPath)
         this.msg = data.msg
         this.confettiFiredCount = 0
         const { width, height } = this.physics.world.bounds
 
-        this.bg = this.add.image(width / 2, height / 2, 'bg');
+        this.bg = this.add.image(width / 2, height / 2, data.bg);
         this.bg.setOrigin(0.5)
+        this.bg.setDisplaySize(width, height)
 
         const textStyle = {
             font: 'bold 32px Orbitron',
@@ -39,7 +35,7 @@ export default class GameOver extends Phaser.Scene {
         const infoText = this.add.text(
             width / 2,
             (height / 2) - height * .2,
-            thi.msg,
+            this.msg,
             textStyle
         )
         infoText.setOrigin(0.5)
