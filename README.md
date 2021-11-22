@@ -1,8 +1,8 @@
 # Strech Duck Mini Game 
 
-![gif-xl](https://user-images.githubusercontent.com/86926500/140054207-06de8aec-df6f-485d-b23b-9e5bf2853554.gif)
+![stretch-duck](https://user-images.githubusercontent.com/86926500/142949250-425e4c3f-9ee6-4c65-9dea-8d45b4cd31f2.gif)
 
-[Paly it here (game is deployed)](https://coderdidit.com/space-stretch)
+[Paly it here (game is deployed)](https://coderdidit.com/stretch-duck)
 
 The Goal of this project is to Gamify health
 
